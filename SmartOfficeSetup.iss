@@ -1,11 +1,12 @@
 [Setup]
 AppId={{8F2E6B1C-4A9D-4C5E-9B2A-7F1D3E8A5C10}
 AppName=SmartOffice Desktop
-AppVersion=1.0.0
-AppVerName=SmartOffice Desktop 1.0.0
+AppVersion=1.0.9
+AppVerName=SmartOffice Desktop 1.0.9
 AppPublisher=Rumah Sakit
 AppPublisherURL=https://example.com
-DefaultDirName={autopf}\SmartOffice Desktop
+; Per-user install so the auto-update can replace files without admin rights.
+DefaultDirName={localappdata}\Programs\SmartOffice Desktop
 DefaultGroupName=SmartOffice Desktop
 OutputDir=installer
 OutputBaseFilename=SmartOfficeDesktopSetup
@@ -16,7 +17,9 @@ ArchitecturesAllowed=x64compatible
 SetupLogging=yes
 WizardStyle=modern
 DisableProgramGroupPage=auto
-PrivilegesRequired=admin
+PrivilegesRequired=lowest
+SetupIconFile=smartoffice.ico
+UninstallDisplayIcon={app}\SmartOfficeDesktop.exe
 
 [Languages]
 Name: "id"; MessagesFile: "compiler:Default.isl"
@@ -24,6 +27,14 @@ Name: "id"; MessagesFile: "compiler:Default.isl"
 [Files]
 Source: "SmartOfficeDesktop.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "apps\*.exe"; DestDir: "{app}\apps"; Flags: ignoreversion recursesubdirs
+Source: "libpq.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "sqlite3.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "libssl-3-x64.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "libcrypto-3-x64.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "libiconv-2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "libintl-9.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "libwinpthread-1.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "zlib1.dll"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{autoprograms}\SmartOffice Desktop"; Filename: "{app}\SmartOfficeDesktop.exe"
