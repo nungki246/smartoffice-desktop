@@ -1,8 +1,8 @@
 [Setup]
 AppId={{8F2E6B1C-4A9D-4C5E-9B2A-7F1D3E8A5C10}
 AppName=SmartOffice Desktop
-AppVersion=1.0.9
-AppVerName=SmartOffice Desktop 1.0.9
+AppVersion=1.0.10
+AppVerName=SmartOffice Desktop 1.0.10
 AppPublisher=Rumah Sakit
 AppPublisherURL=https://example.com
 ; Per-user install so the auto-update can replace files without admin rights.
