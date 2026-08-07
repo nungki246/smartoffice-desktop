@@ -1,0 +1,210 @@
+object PerawatView: TPerawatView
+  Left = 0
+  Height = 500
+  Top = 0
+  Width = 760
+  ClientHeight = 500
+  ClientWidth = 760
+  TabOrder = 0
+  DesignLeft = 851
+  DesignTop = 251
+  object Banner: TPanel
+    Left = 0
+    Height = 64
+    Top = 0
+    Width = 760
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 64
+    ClientWidth = 760
+    Color = clWhite
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object LblTitle: TLabel
+      Left = 20
+      Height = 15
+      Top = 14
+      Width = 109
+      Caption = 'Modul Perawat test'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object FStatusLabel: TLabel
+      Left = 743
+      Height = 64
+      Top = 0
+      Width = 1
+      Align = alRight
+      BorderSpacing.Right = 16
+      Layout = tlCenter
+    end
+  end
+  object FormPnl: TPanel
+    Left = 0
+    Height = 150
+    Top = 64
+    Width = 760
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 150
+    ClientWidth = 760
+    Color = clBtnFace
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 1
+    object LblNip: TLabel
+      Left = 16
+      Height = 15
+      Top = 20
+      Width = 19
+      Caption = 'NIP'
+    end
+    object FEdNip: TEdit
+      Left = 120
+      Height = 23
+      Top = 14
+      Width = 190
+      TabOrder = 0
+    end
+    object LblNama: TLabel
+      Left = 216
+      Height = 15
+      Top = 20
+      Width = 77
+      Caption = 'Nama Perawat'
+    end
+    object FEdNama: TEdit
+      Left = 320
+      Height = 23
+      Top = 14
+      Width = 190
+      TabOrder = 1
+    end
+    object LblUnit: TLabel
+      Left = 416
+      Height = 15
+      Top = 20
+      Width = 22
+      Caption = 'Unit'
+    end
+    object FEdUnit: TEdit
+      Left = 520
+      Height = 23
+      Top = 14
+      Width = 190
+      TabOrder = 2
+    end
+    object LblShift: TLabel
+      Left = 16
+      Height = 15
+      Top = 64
+      Width = 24
+      Caption = 'Shift'
+    end
+    object FEdShift: TEdit
+      Left = 120
+      Height = 23
+      Top = 58
+      Width = 190
+      TabOrder = 3
+    end
+    object LblStatus: TLabel
+      Left = 216
+      Height = 15
+      Top = 64
+      Width = 32
+      Caption = 'Status'
+    end
+    object FEdStatus: TEdit
+      Left = 320
+      Height = 23
+      Top = 58
+      Width = 190
+      TabOrder = 4
+    end
+    object FBtnSave: TBitBtn
+      Left = 16
+      Height = 30
+      Top = 96
+      Width = 100
+      Caption = 'Simpan'
+      TabOrder = 5
+      OnClick = DoSave
+    end
+    object FBtnNew: TBitBtn
+      Left = 124
+      Height = 30
+      Top = 96
+      Width = 100
+      Caption = 'Baru'
+      TabOrder = 6
+      OnClick = DoNew
+    end
+    object FBtnDelete: TBitBtn
+      Left = 232
+      Height = 30
+      Top = 96
+      Width = 100
+      Caption = 'Hapus'
+      TabOrder = 7
+      OnClick = DoDelete
+    end
+    object FBtnRefresh: TBitBtn
+      Left = 340
+      Height = 30
+      Top = 96
+      Width = 100
+      Caption = 'Segarkan'
+      TabOrder = 8
+      OnClick = DoRefresh
+    end
+  end
+  object FGrid: TDBGrid
+    Left = 8
+    Height = 270
+    Top = 222
+    Width = 744
+    Align = alClient
+    AlternateColor = 15790320
+    BorderSpacing.Left = 8
+    BorderSpacing.Top = 8
+    BorderSpacing.Right = 8
+    BorderSpacing.Bottom = 8
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'ID'
+        Width = 60
+        FieldName = 'id'
+      end    
+      item
+        Title.Caption = 'NIP'
+        Width = 100
+        FieldName = 'nip'
+      end    
+      item
+        Title.Caption = 'Nama Perawat'
+        Width = 160
+        FieldName = 'nama'
+      end    
+      item
+        Title.Caption = 'Unit'
+        Width = 120
+        FieldName = 'unit'
+      end    
+      item
+        Title.Caption = 'Shift'
+        Width = 90
+        FieldName = 'shift'
+      end    
+      item
+        Title.Caption = 'Status'
+        Width = 90
+        FieldName = 'status'
+      end>
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    TabOrder = 2
+  end
+end

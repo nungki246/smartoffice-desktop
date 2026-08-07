@@ -1,0 +1,29 @@
+# Build outputs
+*.exe
+apps/*
+!apps/.gitkeep
+installer/
+src/modules/*/lib/
+
+# Compiled units / objects
+*.o
+*.ppu
+*.dcu
+*.a
+*.so
+*.or
+*.res
+!src/modules/launcher/SmartOfficeDesktop.res
+
+# Lazarus session / backup files
+*.lps
+*.lrt
+*.bak
+backup/
+*.~*
+
+# Logs
+*.log
+
+# Test artifacts
+tls_test.*

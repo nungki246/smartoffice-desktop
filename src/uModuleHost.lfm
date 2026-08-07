@@ -1,0 +1,67 @@
+object ModuleHostForm: TModuleHostForm
+  Left = 200
+  Top = 100
+  Caption = 'SmartOffice Desktop'
+  ClientHeight = 594
+  ClientWidth = 964
+  Position = poScreenCenter
+  object FAppMenu: TMainMenu
+    object MenuFile: TMenuItem
+      Caption = '&File'
+      object MenuExit: TMenuItem
+        Caption = '&Keluar'
+        OnClick = DoAppExit
+      end
+    end
+  end
+  object FHeader: TPanel
+    Left = 0
+    Top = 0
+    Width = 964
+    Height = 48
+    Align = alTop
+    BevelOuter = bvNone
+    Color = clNavy
+    object FTitleLabel: TLabel
+      Left = 16
+      Top = 5
+      Width = 400
+      Height = 38
+      Align = alLeft
+      BorderSpacing.Left = 16
+      Caption = ''
+      Font.Color = clWhite
+      Font.Size = 13
+      Font.Style = [fsBold]
+      Layout = tlCenter
+    end
+    object FUserBadge: TLabel
+      Left = 700
+      Top = 5
+      Width = 260
+      Height = 38
+      Align = alRight
+      BorderSpacing.Right = 16
+      Caption = ''
+      Font.Color = clWhite
+      Layout = tlCenter
+    end
+  end
+  object FContent: TPanel
+    Left = 0
+    Top = 48
+    Width = 964
+    Height = 521
+    Align = alClient
+    BevelOuter = bvNone
+    Color = clBtnFace
+  end
+  object FStatusBar: TStatusBar
+    Left = 0
+    Top = 569
+    Width = 964
+    Height = 25
+    Align = alBottom
+    SimplePanel = True
+  end
+end
