@@ -1,3 +1,6 @@
+# Source code (kept local only; distribution via GitHub Releases)
+src/
+
 # Build outputs
 *.exe
 apps/*
