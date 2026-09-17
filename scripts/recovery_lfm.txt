@@ -1,0 +1,27 @@
+Created At: 2026-09-16T21:05:03+07:00
+Completed At: 2026-09-16T21:05:08+07:00
+
+				The command exited with code 0.
+				Output:
+				object LoginForm: TLoginForm
+  Left = 500
+  Height = 484
+  Top = 250
+  Width = 704
+  BorderStyle = bsNone
+  Caption = 'Masuk - SmartOffice Desktop'
+  ClientHeight = 484
+  ClientWidth = 704
+  Color = clNavy
+  Position = poScreenCenter
+  LCLVersion = '4.8.0.0'
+  object PnlBackground: TPanel
+    Left = 2
+    Height = 480
+    Top = 2
+    Width = 700
+    BevelOuter = bvNone
+    ClientHeight = 480
+    ClientWidth = 700
+
+

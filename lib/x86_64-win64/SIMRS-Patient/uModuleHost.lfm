@@ -1,0 +1,114 @@
+object ModuleHostForm: TModuleHostForm
+  Left = 337
+  Height = 594
+  Top = 128
+  Width = 964
+  Caption = 'SmartOffice Desktop'
+  ClientHeight = 594
+  ClientWidth = 964
+  Color = clBtnFace
+  Position = poScreenCenter
+  LCLVersion = '4.8.0.0'
+  WindowState = wsMaximized
+  object FHeader: TPanel
+    Left = 0
+    Height = 48
+    Top = 0
+    Width = 964
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 48
+    ClientWidth = 964
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object FNavToggleBtn: TSpeedButton
+      Left = 0
+      Height = 48
+      Top = 0
+      Width = 48
+      Align = alLeft
+      Flat = True
+      Font.Height = -18
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ShowHint = True
+      ParentFont = False
+      ParentShowHint = False
+    end
+    object FTitleLabel: TLabel
+      Left = 64
+      Height = 48
+      Top = 0
+      Width = 1
+      Align = alLeft
+      BorderSpacing.Left = 16
+      Layout = tlCenter
+      ParentFont = False
+    end
+    object FUserBadge: TLabel
+      Left = 947
+      Height = 48
+      Top = 0
+      Width = 1
+      Align = alRight
+      BorderSpacing.Right = 16
+      Layout = tlCenter
+      ParentFont = False
+    end
+  end
+  object FNavPanel: TPanel
+    Left = 0
+    Height = 523
+    Top = 48
+    Width = 260
+    Align = alLeft
+    BevelOuter = bvNone
+    ClientHeight = 523
+    ClientWidth = 260
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 1
+    object FNavTree: TTreeView
+      Left = 0
+      Height = 523
+      Top = 0
+      Width = 260
+      Align = alClient
+      BorderStyle = bsNone
+      Indent = 18
+      ReadOnly = True
+      ShowLines = False
+      ShowRoot = False
+      TabOrder = 0
+      Options = [tvoAutoItemHeight, tvoHideSelection, tvoKeepCollapsedNodes, tvoReadOnly, tvoShowButtons, tvoToolTips]
+    end
+  end
+  object FContent: TPanel
+    Left = 260
+    Height = 523
+    Top = 48
+    Width = 704
+    Align = alClient
+    BevelOuter = bvNone
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 2
+  end
+  object FStatusBar: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 571
+    Width = 964
+    Panels = <>
+  end
+  object FAppMenu: TMainMenu
+    object MenuFile: TMenuItem
+      Caption = '&File'
+      object MenuExit: TMenuItem
+        Caption = '&Keluar'
+        OnClick = DoAppExit
+      end
+    end
+  end
+end

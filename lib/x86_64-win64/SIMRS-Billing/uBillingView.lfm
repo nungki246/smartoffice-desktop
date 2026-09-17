@@ -1,0 +1,253 @@
+﻿object BillingView: TBillingView
+  Left = 0
+  Height = 594
+  Top = 0
+  Width = 964
+  ClientHeight = 594
+  ClientWidth = 964
+  object Banner: TPanel
+    Left = 0
+    Height = 48
+    Top = 0
+    Width = 964
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 48
+    ClientWidth = 964
+    Color = clWhite
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object LblTitle: TLabel
+      Left = 20
+      Height = 15
+      Top = 14
+      Width = 119
+      Caption = 'Modul Billing v1.1.0'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object FStatusLabel: TLabel
+      Left = 743
+      Height = 48
+      Top = 0
+      Width = 205
+      Align = alRight
+      BorderSpacing.Right = 16
+      Layout = tlCenter
+    end
+  end
+  object FormPnl: TPanel
+    Left = 0
+    Height = 88
+    Top = 48
+    Width = 964
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 88
+    ClientWidth = 964
+    Color = clBtnFace
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 1
+    object LblCari: TLabel
+      Left = 16
+      Height = 15
+      Top = 17
+      Width = 70
+      Caption = 'Cari (RM/Nama)'
+    end
+    object FEdCari: TEdit
+      Left = 120
+      Height = 23
+      Top = 12
+      Width = 360
+      TabOrder = 0
+    end
+    object FBtnCari: TBitBtn
+      Left = 488
+      Height = 30
+      Top = 10
+      Width = 110
+      Caption = 'Cari'
+      TabOrder = 1
+      OnClick = DoSearch
+    end
+    object FBtnRefresh: TBitBtn
+      Left = 830
+      Height = 30
+      Top = 10
+      Width = 110
+      Caption = 'Segarkan'
+      TabOrder = 2
+      OnClick = DoRefresh
+    end
+    object LblPasien: TLabel
+      Left = 16
+      Height = 15
+      Top = 57
+      Width = 38
+      Caption = 'Pasien'
+    end
+    object FEdPasien: TEdit
+      Left = 120
+      Height = 23
+      Top = 53
+      Width = 540
+      ReadOnly = True
+      TabOrder = 3
+    end
+    object FBtnInvoice: TBitBtn
+      Left = 688
+      Height = 30
+      Top = 51
+      Width = 120
+      Caption = 'Buat Invoice'
+      TabOrder = 4
+      OnClick = DoCreateInvoice
+    end
+  end
+  object BtnBar: TPanel
+    Left = 0
+    Height = 34
+    Top = 136
+    Width = 964
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 34
+    ClientWidth = 964
+    Color = clBtnFace
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 7
+    object FBtnVoidCharge: TBitBtn
+      Left = 16
+      Height = 30
+      Top = 2
+      Width = 150
+      Caption = 'Void Charge Item'
+      TabOrder = 0
+      OnClick = DoVoidCharge
+    end
+    object FBtnFinalize: TBitBtn
+      Left = 174
+      Height = 30
+      Top = 2
+      Width = 150
+      Caption = 'Finalisasi Invoice'
+      TabOrder = 1
+      OnClick = DoFinalize
+    end
+    object FBtnVoidInvoice: TBitBtn
+      Left = 332
+      Height = 30
+      Top = 2
+      Width = 160
+      Caption = 'Void Invoice DRAFT'
+      TabOrder = 2
+      OnClick = DoVoidInvoice
+    end
+  end
+  object FGrid: TDBGrid
+    Left = 8
+    Height = 130
+    Top = 170
+    Width = 948
+    Align = alClient
+    AlternateColor = 15790320
+    BorderSpacing.Left = 8
+    BorderSpacing.Top = 8
+    BorderSpacing.Right = 8
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'ID'
+        Width = 40
+        FieldName = 'id'
+      end    
+      item
+        Title.Caption = 'Charge No'
+        Width = 150
+        FieldName = 'charge_no'
+      end    
+      item
+        Title.Caption = 'Item'
+        Width = 220
+        FieldName = 'item_name'
+      end    
+      item
+        Title.Caption = 'Qty'
+        Width = 70
+        FieldName = 'quantity'
+      end    
+      item
+        Title.Caption = 'Harga Satuan'
+        Width = 110
+        FieldName = 'unit_price'
+      end    
+      item
+        Title.Caption = 'Total'
+        Width = 110
+        FieldName = 'net_amount'
+      end    
+      item
+        Title.Caption = 'Status'
+        Width = 90
+        FieldName = 'status'
+      end>
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    TabOrder = 2
+  end
+  object FInvoiceGrid: TDBGrid
+    Left = 8
+    Height = 200
+    Top = 312
+    Width = 948
+    Align = alBottom
+    BorderSpacing.Left = 8
+    BorderSpacing.Top = 4
+    BorderSpacing.Right = 8
+    BorderSpacing.Bottom = 8
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'ID'
+        Width = 40
+        FieldName = 'id'
+      end    
+      item
+        Title.Caption = 'No. Invoice'
+        Width = 160
+        FieldName = 'invoice_no'
+      end    
+      item
+        Title.Caption = 'Tanggal'
+        Width = 90
+        FieldName = 'tanggal'
+      end    
+      item
+        Title.Caption = 'Penjamin'
+        Width = 160
+        FieldName = 'payer'
+      end    
+      item
+        Title.Caption = 'Total'
+        Width = 120
+        FieldName = 'net_amount'
+      end    
+      item
+        Title.Caption = 'Dibayar'
+        Width = 120
+        FieldName = 'paid_amount'
+      end    
+      item
+        Title.Caption = 'Status'
+        Width = 100
+        FieldName = 'status'
+      end>
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    TabOrder = 6
+  end
+end

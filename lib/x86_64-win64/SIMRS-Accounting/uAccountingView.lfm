@@ -1,0 +1,326 @@
+﻿object AccountingView: TAccountingView
+  Left = 0
+  Height = 594
+  Top = 0
+  Width = 964
+  ClientHeight = 594
+  ClientWidth = 964
+  object Banner: TPanel
+    Left = 0
+    Height = 48
+    Top = 0
+    Width = 964
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 48
+    ClientWidth = 964
+    Color = clWhite
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object LblTitle: TLabel
+      Left = 20
+      Height = 15
+      Top = 14
+      Width = 132
+      Caption = 'Modul Akuntansi v1.1.0'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = LblTitleClick
+    end
+    object FStatusLabel: TLabel
+      Left = 743
+      Height = 48
+      Top = 0
+      Width = 205
+      Align = alRight
+      BorderSpacing.Right = 16
+      Layout = tlCenter
+    end
+  end
+  object FormPnl: TPanel
+    Left = 0
+    Height = 232
+    Top = 48
+    Width = 964
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 232
+    ClientWidth = 964
+    Color = clBtnFace
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 1
+    object LblTanggal: TLabel
+      Left = 16
+      Height = 15
+      Top = 17
+      Width = 90
+      Caption = 'Tanggal (YYYY-MM-DD)'
+    end
+    object FEdTanggal: TEdit
+      Left = 160
+      Height = 23
+      Top = 12
+      Width = 130
+      TabOrder = 0
+    end
+    object LblUraian: TLabel
+      Left = 310
+      Height = 15
+      Top = 17
+      Width = 36
+      Caption = 'Uraian'
+    end
+    object FEdUraian: TEdit
+      Left = 400
+      Height = 23
+      Top = 12
+      Width = 540
+      TabOrder = 1
+    end
+    object LblAkun: TLabel
+      Left = 16
+      Height = 15
+      Top = 57
+      Width = 26
+      Caption = 'Akun'
+    end
+    object FCbAccount: TComboBox
+      Left = 160
+      Height = 23
+      Top = 52
+      Width = 360
+      Style = csDropDownList
+      TabOrder = 2
+    end
+    object LblDebit: TLabel
+      Left = 540
+      Height = 15
+      Top = 57
+      Width = 30
+      Caption = 'Debit'
+    end
+    object FEdDebit: TEdit
+      Left = 590
+      Height = 23
+      Top = 52
+      Width = 120
+      TabOrder = 3
+    end
+    object LblKredit: TLabel
+      Left = 724
+      Height = 15
+      Top = 57
+      Width = 33
+      Caption = 'Kredit'
+    end
+    object FEdKredit: TEdit
+      Left = 774
+      Height = 23
+      Top = 52
+      Width = 120
+      TabOrder = 4
+    end
+    object FBtnAddLine: TBitBtn
+      Left = 16
+      Height = 28
+      Top = 90
+      Width = 130
+      Caption = 'Tambah Baris'
+      TabOrder = 5
+      OnClick = DoAddLine
+    end
+    object FBtnRemoveLine: TBitBtn
+      Left = 154
+      Height = 28
+      Top = 90
+      Width = 130
+      Caption = 'Hapus Baris'
+      TabOrder = 6
+      OnClick = DoRemoveLine
+    end
+    object FEntryGrid: TStringGrid
+      Left = 16
+      Height = 96
+      Top = 124
+      Width = 924
+      Align = alNone
+      ColCount = 4
+      Columns = <    
+        item
+          Title.Caption = 'Kode Akun'
+          Width = 120
+        end    
+        item
+          Title.Caption = 'Nama Akun'
+          Width = 320
+        end    
+        item
+          Title.Caption = 'Debit'
+          Width = 140
+        end    
+        item
+          Title.Caption = 'Kredit'
+          Width = 140
+        end>
+      DefaultRowHeight = 20
+      FixedCols = 0
+      Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRowSelect]
+      RowCount = 2
+      TabOrder = 7
+    end
+    object FBtnSave: TBitBtn
+      Left = 16
+      Height = 30
+      Top = 0
+      Width = 110
+      Caption = 'Simpan Draft'
+      TabOrder = 8
+      Visible = False
+    end
+    object FBtnPost: TBitBtn
+      Left = 780
+      Height = 30
+      Top = 194
+      Width = 110
+      Caption = 'Posting'
+      TabOrder = 9
+      OnClick = DoPost
+    end
+    object FBtnReverse: TBitBtn
+      Left = 662
+      Height = 30
+      Top = 194
+      Width = 110
+      Caption = 'Reversal'
+      TabOrder = 10
+      OnClick = DoReverse
+    end
+    object FBtnVoid: TBitBtn
+      Left = 544
+      Height = 30
+      Top = 194
+      Width = 110
+      Caption = 'Void'
+      TabOrder = 11
+      OnClick = DoVoid
+    end
+    object FBtnNew: TBitBtn
+      Left = 16
+      Height = 30
+      Top = 194
+      Width = 110
+      Caption = 'Baru'
+      TabOrder = 12
+      OnClick = DoNew
+    end
+    object FBtnRefresh: TBitBtn
+      Left = 134
+      Height = 30
+      Top = 194
+      Width = 110
+      Caption = 'Segarkan'
+      TabOrder = 13
+      OnClick = DoRefresh
+    end
+  end
+  object FGrid: TDBGrid
+    Left = 8
+    Height = 182
+    Top = 288
+    Width = 948
+    Align = alClient
+    AlternateColor = 15790320
+    BorderSpacing.Left = 8
+    BorderSpacing.Top = 8
+    BorderSpacing.Right = 8
+    BorderSpacing.Bottom = 8
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'ID'
+        Width = 50
+        FieldName = 'id'
+      end    
+      item
+        Title.Caption = 'No. Jurnal'
+        Width = 160
+        FieldName = 'journal_no'
+      end    
+      item
+        Title.Caption = 'Tanggal'
+        Width = 90
+        FieldName = 'tanggal'
+      end    
+      item
+        Title.Caption = 'Uraian'
+        Width = 260
+        FieldName = 'description'
+      end    
+      item
+        Title.Caption = 'Debit'
+        Width = 110
+        FieldName = 'debit'
+      end    
+      item
+        Title.Caption = 'Kredit'
+        Width = 110
+        FieldName = 'kredit'
+      end    
+      item
+        Title.Caption = 'Status'
+        Width = 90
+        FieldName = 'status'
+      end>
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    TabOrder = 2
+  end
+  object FDetailGrid: TDBGrid
+    Left = 8
+    Height = 150
+    Top = 280
+    Width = 948
+    Align = alBottom
+    BorderSpacing.Left = 8
+    BorderSpacing.Top = 4
+    BorderSpacing.Right = 8
+    BorderSpacing.Bottom = 8
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'Line'
+        Width = 50
+        FieldName = 'line_no'
+      end    
+      item
+        Title.Caption = 'Kode Akun'
+        Width = 110
+        FieldName = 'account_code'
+      end    
+      item
+        Title.Caption = 'Nama Akun'
+        Width = 240
+        FieldName = 'account_name'
+      end    
+      item
+        Title.Caption = 'Debit'
+        Width = 120
+        FieldName = 'debit_amount'
+      end    
+      item
+        Title.Caption = 'Kredit'
+        Width = 120
+        FieldName = 'credit_amount'
+      end    
+      item
+        Title.Caption = 'Keterangan'
+        Width = 200
+        FieldName = 'description'
+      end>
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    TabOrder = 3
+  end
+end

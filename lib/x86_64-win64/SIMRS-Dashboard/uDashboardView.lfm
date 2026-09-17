@@ -1,0 +1,9 @@
+﻿object DashboardView: TDashboardView
+  Left = 0
+  Height = 480
+  Top = 0
+  Width = 800
+  ClientHeight = 480
+  ClientWidth = 800
+end
+

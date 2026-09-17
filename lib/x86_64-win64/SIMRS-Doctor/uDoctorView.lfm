@@ -1,0 +1,556 @@
+﻿object DoctorForm: TDoctorForm
+  Left = 0
+  Height = 594
+  Top = 0
+  Width = 964
+  BorderStyle = bsNone
+  ClientHeight = 594
+  ClientWidth = 964
+  Color = clBtnFace
+  Position = poDesigned
+  object Banner: TPanel
+    Left = 0
+    Height = 48
+    Top = 0
+    Width = 964
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 48
+    ClientWidth = 964
+    Color = clWhite
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object LblTitle: TLabel
+      Left = 20
+      Height = 15
+      Top = 14
+      Width = 118
+      Caption = 'Modul Dokter v1.1.0'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object FStatusLabel: TLabel
+      Left = 743
+      Height = 48
+      Top = 0
+      Width = 205
+      Align = alRight
+      BorderSpacing.Right = 16
+      Layout = tlCenter
+    end
+  end
+  object FormPnl: TPanel
+    Left = 0
+    Height = 92
+    Top = 48
+    Width = 964
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 92
+    ClientWidth = 964
+    Color = clBtnFace
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 1
+    object LblDoctor: TLabel
+      Left = 16
+      Height = 15
+      Top = 16
+      Width = 32
+      Caption = 'Dokter'
+    end
+    object FCbDoctor: TComboBox
+      Left = 100
+      Height = 23
+      Top = 12
+      Width = 320
+      Style = csDropDownList
+      TabOrder = 0
+      OnChange = DoDoctorChange
+    end
+    object FBtnRefresh: TBitBtn
+      Left = 830
+      Height = 30
+      Top = 10
+      Width = 110
+      Caption = 'Segarkan'
+      TabOrder = 1
+      OnClick = DoRefresh
+    end
+    object FBtnCall: TBitBtn
+      Left = 712
+      Height = 30
+      Top = 10
+      Width = 110
+      Caption = 'Panggil / Mulai'
+      TabOrder = 2
+      OnClick = DoCall
+    end
+    object LblPasien: TLabel
+      Left = 16
+      Height = 15
+      Top = 58
+      Width = 38
+      Caption = 'Pasien'
+    end
+    object FEdPasien: TEdit
+      Left = 100
+      Height = 23
+      Top = 54
+      Width = 560
+      ReadOnly = True
+      TabOrder = 3
+    end
+    object LblEncounter: TLabel
+      Left = 682
+      Height = 15
+      Top = 58
+      Width = 52
+      Caption = 'Encounter'
+    end
+    object FEdEncounter: TEdit
+      Left = 748
+      Height = 23
+      Top = 54
+      Width = 192
+      ReadOnly = True
+      TabOrder = 4
+    end
+  end
+  object FGrid: TDBGrid
+    Left = 8
+    Height = 160
+    Top = 148
+    Width = 948
+    Align = alClient
+    AlternateColor = 15790320
+    BorderSpacing.Left = 8
+    BorderSpacing.Top = 8
+    BorderSpacing.Right = 8
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'ID'
+        Width = 40
+        FieldName = 'id'
+      end    
+      item
+        Title.Caption = 'Antrian'
+        Width = 70
+        FieldName = 'display_number'
+      end    
+      item
+        Title.Caption = 'MRN'
+        Width = 100
+        FieldName = 'mrn'
+      end    
+      item
+        Title.Caption = 'Pasien'
+        Width = 200
+        FieldName = 'full_name'
+      end    
+      item
+        Title.Caption = 'Encounter'
+        Width = 140
+        FieldName = 'encounter_no'
+      end    
+      item
+        Title.Caption = 'Status'
+        Width = 90
+        FieldName = 'status'
+      end>
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    TabOrder = 2
+  end
+  object PgCtrl: TPageControl
+    Left = 0
+    Height = 286
+    Top = 308
+    Width = 964
+    ActivePage = TabSOAP
+    Align = alBottom
+    TabOrder = 3
+    object TabSOAP: TTabSheet
+      Caption = 'SOAP'
+      ClientHeight = 261
+      ClientWidth = 956
+      object LblSub: TLabel
+        Left = 16
+        Height = 15
+        Top = 12
+        Width = 56
+        Caption = 'Subjective'
+      end
+      object MemoSub: TMemo
+        Left = 16
+        Height = 80
+        Top = 30
+        Width = 460
+        ScrollBars = ssVertical
+        TabOrder = 0
+      end
+      object LblObj: TLabel
+        Left = 490
+        Height = 15
+        Top = 12
+        Width = 55
+        Caption = 'Objective'
+      end
+      object MemoObj: TMemo
+        Left = 490
+        Height = 80
+        Top = 30
+        Width = 450
+        ScrollBars = ssVertical
+        TabOrder = 1
+      end
+      object LblAsmt: TLabel
+        Left = 16
+        Height = 15
+        Top = 118
+        Width = 66
+        Caption = 'Assessment'
+      end
+      object MemoAsmt: TMemo
+        Left = 16
+        Height = 80
+        Top = 136
+        Width = 460
+        ScrollBars = ssVertical
+        TabOrder = 2
+      end
+      object LblPlan: TLabel
+        Left = 490
+        Height = 15
+        Top = 118
+        Width = 21
+        Caption = 'Plan'
+      end
+      object MemoPlan: TMemo
+        Left = 490
+        Height = 80
+        Top = 136
+        Width = 450
+        ScrollBars = ssVertical
+        TabOrder = 3
+      end
+      object FBtnSave: TBitBtn
+        Left = 16
+        Height = 30
+        Top = 224
+        Width = 140
+        Caption = 'Simpan SOAP'
+        TabOrder = 4
+        OnClick = DoSaveSOAP
+      end
+      object FBtnFinalize: TBitBtn
+        Left = 164
+        Height = 30
+        Top = 224
+        Width = 140
+        Caption = 'Finalize Catatan'
+        TabOrder = 5
+        OnClick = DoFinalize
+      end
+      object FBtnNew: TBitBtn
+        Left = 800
+        Height = 30
+        Top = 224
+        Width = 140
+        Caption = 'Pasien Baru'
+        TabOrder = 6
+        OnClick = DoNew
+      end
+    end
+    object TabDx: TTabSheet
+      Caption = 'Diagnosis'
+      ClientHeight = 261
+      ClientWidth = 956
+      object LblDxCode: TLabel
+        Left = 16
+        Height = 15
+        Top = 16
+        Width = 60
+        Caption = 'Kode ICD-10'
+      end
+      object FEdDxCode: TEdit
+        Left = 130
+        Height = 23
+        Top = 12
+        Width = 120
+        TabOrder = 0
+      end
+      object LblDxName: TLabel
+        Left = 266
+        Height = 15
+        Top = 16
+        Width = 29
+        Caption = 'Nama'
+      end
+      object FEdDxName: TEdit
+        Left = 320
+        Height = 23
+        Top = 12
+        Width = 340
+        TabOrder = 1
+      end
+      object LblDxType: TLabel
+        Left = 676
+        Height = 15
+        Top = 16
+        Width = 24
+        Caption = 'Tipe'
+      end
+      object FCbDxType: TComboBox
+        Left = 730
+        Height = 23
+        Top = 12
+        Width = 120
+        Style = csDropDownList
+        TabOrder = 2
+      end
+      object FBtnAddDx: TBitBtn
+        Left = 856
+        Height = 30
+        Top = 10
+        Width = 90
+        Caption = 'Tambah'
+        TabOrder = 3
+        OnClick = DoAddDiagnosis
+      end
+      object FGridDx: TStringGrid
+        Left = 16
+        Height = 200
+        Top = 48
+        Width = 924
+        ColCount = 4
+        Columns = <    
+          item
+            Title.Caption = 'Kode ICD-10'
+            Width = 130
+          end    
+          item
+            Title.Caption = 'Nama Diagnosis'
+            Width = 420
+          end    
+          item
+            Title.Caption = 'Tipe'
+            Width = 120
+          end    
+          item
+            Title.Caption = 'Status'
+            Width = 100
+          end>
+        DefaultRowHeight = 20
+        FixedCols = 0
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRowSelect]
+        RowCount = 2
+        TabOrder = 4
+      end
+    end
+    object TabRx: TTabSheet
+      Caption = 'Resep'
+      ClientHeight = 261
+      ClientWidth = 956
+      object LblItem: TLabel
+        Left = 16
+        Height = 15
+        Top = 16
+        Width = 20
+        Caption = 'Obat'
+      end
+      object FCbItem: TComboBox
+        Left = 130
+        Height = 23
+        Top = 12
+        Width = 260
+        Style = csDropDownList
+        TabOrder = 0
+      end
+      object LblDosage: TLabel
+        Left = 400
+        Height = 15
+        Top = 16
+        Width = 35
+        Caption = 'Dosis'
+      end
+      object FEdDosage: TEdit
+        Left = 450
+        Height = 23
+        Top = 12
+        Width = 90
+        TabOrder = 1
+      end
+      object LblFreq: TLabel
+        Left = 550
+        Height = 15
+        Top = 16
+        Width = 62
+        Caption = 'Frekuensi'
+      end
+      object FEdFreq: TEdit
+        Left = 620
+        Height = 23
+        Top = 12
+        Width = 90
+        TabOrder = 2
+      end
+      object LblQty: TLabel
+        Left = 720
+        Height = 15
+        Top = 16
+        Width = 22
+        Caption = 'Qty'
+      end
+      object FEdQty: TEdit
+        Left = 762
+        Height = 23
+        Top = 12
+        Width = 80
+        TabOrder = 3
+      end
+      object FBtnAddRx: TBitBtn
+        Left = 852
+        Height = 30
+        Top = 10
+        Width = 94
+        Caption = 'Tambah'
+        TabOrder = 4
+        OnClick = DoAddRxItem
+      end
+      object FGridRx: TStringGrid
+        Left = 16
+        Height = 150
+        Top = 48
+        Width = 924
+        ColCount = 6
+        Columns = <    
+          item
+            Title.Caption = 'Obat'
+            Width = 240
+          end    
+          item
+            Title.Caption = 'Dosis'
+            Width = 110
+          end    
+          item
+            Title.Caption = 'Frekuensi'
+            Width = 120
+          end    
+          item
+            Title.Caption = 'Rute'
+            Width = 100
+          end    
+          item
+            Title.Caption = 'Qty'
+            Width = 80
+          end    
+          item
+            Title.Caption = 'Instruksi'
+            Width = 240
+          end>
+        DefaultRowHeight = 20
+        FixedCols = 0
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRowSelect]
+        RowCount = 2
+        TabOrder = 5
+      end
+      object FBtnCreateRx: TBitBtn
+        Left = 16
+        Height = 30
+        Top = 210
+        Width = 160
+        Caption = 'Buat Resep (Submit)'
+        TabOrder = 6
+        OnClick = DoCreatePrescription
+      end
+      object FBtnClearRx: TBitBtn
+        Left = 184
+        Height = 30
+        Top = 210
+        Width = 120
+        Caption = 'Kosongkan'
+        TabOrder = 7
+        OnClick = DoClearRx
+      end
+    end
+    object TabProc: TTabSheet
+      Caption = 'Tindakan'
+      ClientHeight = 261
+      ClientWidth = 956
+      object LblTariff: TLabel
+        Left = 16
+        Height = 15
+        Top = 16
+        Width = 40
+        Caption = 'Tarif'
+      end
+      object FCbTariff: TComboBox
+        Left = 130
+        Height = 23
+        Top = 12
+        Width = 320
+        Style = csDropDownList
+        TabOrder = 0
+      end
+      object LblProcQty: TLabel
+        Left = 460
+        Height = 15
+        Top = 16
+        Width = 22
+        Caption = 'Qty'
+      end
+      object FEdProcQty: TEdit
+        Left = 500
+        Height = 23
+        Top = 12
+        Width = 80
+        TabOrder = 1
+      end
+      object FBtnAddProc: TBitBtn
+        Left = 590
+        Height = 30
+        Top = 10
+        Width = 120
+        Caption = 'Tambah Tindakan'
+        TabOrder = 2
+        OnClick = DoAddProcedure
+      end
+      object FGridProc: TStringGrid
+        Left = 16
+        Height = 180
+        Top = 48
+        Width = 924
+        ColCount = 5
+        Columns = <    
+          item
+            Title.Caption = 'Kode'
+            Width = 120
+          end    
+          item
+            Title.Caption = 'Nama Tindakan'
+            Width = 340
+          end    
+          item
+            Title.Caption = 'Qty'
+            Width = 80
+          end    
+          item
+            Title.Caption = 'Harga Satuan'
+            Width = 130
+          end    
+          item
+            Title.Caption = 'Catatan'
+            Width = 220
+          end>
+        DefaultRowHeight = 20
+        FixedCols = 0
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRowSelect]
+        RowCount = 2
+        TabOrder = 3
+      end
+    end
+  end
+end

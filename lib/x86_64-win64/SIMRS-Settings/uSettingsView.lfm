@@ -1,0 +1,9 @@
+﻿object SettingsView: TSettingsView
+  Left = 0
+  Height = 400
+  Top = 0
+  Width = 700
+  ClientHeight = 400
+  ClientWidth = 700
+end
+

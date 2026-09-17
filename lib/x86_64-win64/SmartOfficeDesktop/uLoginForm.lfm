@@ -1,0 +1,303 @@
+object LoginForm: TLoginForm
+  Left = 469
+  Height = 480
+  Top = 250
+  Width = 760
+  BorderStyle = bsNone
+  Caption = 'Masuk - SmartOffice Desktop'
+  ClientHeight = 480
+  ClientWidth = 760
+  Color = clNavy
+  Position = poScreenCenter
+  LCLVersion = '4.8.0.0'
+  object PnlBackground: TPanel
+    Left = 1
+    Height = 478
+    Top = 1
+    Width = 758
+    BevelOuter = bvNone
+    ClientHeight = 478
+    ClientWidth = 758
+    Color = clWhite
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    OnMouseDown = PnlBackgroundMouseDown
+    object PnlLeft: TPanel
+      Left = 0
+      Height = 478
+      Top = 0
+      Width = 300
+      BevelOuter = bvNone
+      ClientHeight = 478
+      ClientWidth = 300
+      Color = clNavy
+      ParentBackground = False
+      ParentColor = False
+      TabOrder = 0
+      OnMouseDown = PnlBackgroundMouseDown
+      object LblAppIcon: TLabel
+        Left = 0
+        Height = 100
+        Top = 130
+        Width = 300
+        Alignment = taCenter
+        AutoSize = False
+        Font.Color = clWhite
+        Font.Height = -72
+        Font.Name = 'Segoe Fluent Icons'
+        Layout = tlCenter
+        ParentFont = False
+      end
+      object LblAppName: TLabel
+        Left = 0
+        Height = 40
+        Top = 240
+        Width = 300
+        Alignment = taCenter
+        AutoSize = False
+        Caption = 'SmartOffice'
+        Font.Color = clWhite
+        Font.Height = -28
+        Font.Style = [fsBold]
+        Layout = tlCenter
+        ParentFont = False
+      end
+      object LblAppTagline: TLabel
+        Left = 0
+        Height = 30
+        Top = 280
+        Width = 300
+        Alignment = taCenter
+        AutoSize = False
+        Caption = 'Hospital Information System'
+        Font.Color = clWhite
+        Font.Height = -14
+        Layout = tlCenter
+        ParentFont = False
+      end
+      object LblVersion: TLabel
+        Left = 0
+        Height = 30
+        Top = 430
+        Width = 300
+        Alignment = taCenter
+        AutoSize = False
+        Caption = 'v1.0'
+        Font.Color = clWhite
+        Font.Height = -12
+        Layout = tlCenter
+        ParentFont = False
+      end
+    end
+    object PnlRight: TPanel
+      Left = 300
+      Height = 478
+      Top = 0
+      Width = 458
+      BevelOuter = bvNone
+      ClientHeight = 478
+      ClientWidth = 458
+      Color = clWhite
+      ParentBackground = False
+      ParentColor = False
+      TabOrder = 1
+      OnMouseDown = PnlBackgroundMouseDown
+      object LblClose: TLabel
+        Cursor = crHandPoint
+        Left = 420
+        Height = 30
+        Top = 10
+        Width = 30
+        Alignment = taCenter
+        AutoSize = False
+        Caption = 'X'
+        Font.Color = clSilver
+        Font.Height = -16
+        Layout = tlCenter
+        ParentFont = False
+        OnClick = LblCloseClick
+        OnMouseEnter = LblCloseMouseEnter
+        OnMouseLeave = LblCloseMouseLeave
+      end
+      object LblTitle: TLabel
+        Left = 60
+        Height = 45
+        Top = 60
+        Width = 340
+        AutoSize = False
+        Caption = 'Selamat Datang'
+        Font.Color = clBlack
+        Font.Height = -32
+        Font.Style = [fsBold]
+        Layout = tlCenter
+        ParentFont = False
+      end
+      object LblSubtitle: TLabel
+        Left = 60
+        Height = 30
+        Top = 105
+        Width = 340
+        AutoSize = False
+        Caption = 'Silakan masuk ke akun Anda untuk melanjutkan.'
+        Font.Color = clGray
+        Font.Height = -14
+        Layout = tlCenter
+        ParentFont = False
+      end
+      object LblUserCap: TLabel
+        Left = 60
+        Height = 25
+        Top = 160
+        Width = 340
+        AutoSize = False
+        Caption = 'Nama Pengguna'
+        Font.Color = clGray
+        Font.Height = -13
+        Layout = tlCenter
+        ParentFont = False
+      end
+      object PnlUserWrap: TPanel
+        Left = 60
+        Height = 48
+        Top = 190
+        Width = 340
+        BevelOuter = bvNone
+        ClientHeight = 48
+        ClientWidth = 340
+        Color = 16119285
+        ParentBackground = False
+        ParentColor = False
+        TabOrder = 0
+        object LblIconUser: TLabel
+          Left = 0
+          Height = 48
+          Top = 0
+          Width = 45
+          Alignment = taCenter
+          AutoSize = False
+          Font.Color = clGray
+          Font.Height = -18
+          Font.Name = 'Segoe Fluent Icons'
+          Layout = tlCenter
+          ParentFont = False
+        end
+        object EdUser: TEdit
+          Left = 45
+          Height = 21
+          Top = 13
+          Width = 285
+          BorderStyle = bsNone
+          Font.Color = clBlack
+          Font.Height = -16
+          ParentFont = False
+          TabOrder = 0
+          OnEnter = EdEnter
+          OnExit = EdExit
+          OnKeyDown = EdKeyDown
+        end
+      end
+      object LblPassCap: TLabel
+        Left = 60
+        Height = 25
+        Top = 255
+        Width = 340
+        AutoSize = False
+        Caption = 'Kata Sandi'
+        Font.Color = clGray
+        Font.Height = -13
+        Layout = tlCenter
+        ParentFont = False
+      end
+      object PnlPassWrap: TPanel
+        Left = 60
+        Height = 48
+        Top = 285
+        Width = 340
+        BevelOuter = bvNone
+        ClientHeight = 48
+        ClientWidth = 340
+        Color = 16119285
+        ParentBackground = False
+        ParentColor = False
+        TabOrder = 1
+        object LblIconPass: TLabel
+          Left = 0
+          Height = 48
+          Top = 0
+          Width = 45
+          Alignment = taCenter
+          AutoSize = False
+          Font.Color = clGray
+          Font.Height = -18
+          Font.Name = 'Segoe Fluent Icons'
+          Layout = tlCenter
+          ParentFont = False
+        end
+        object EdPass: TEdit
+          Left = 45
+          Height = 21
+          Top = 13
+          Width = 285
+          BorderStyle = bsNone
+          EchoMode = emPassword
+          Font.Color = clBlack
+          Font.Height = -16
+          ParentFont = False
+          PasswordChar = '?'
+          TabOrder = 0
+          OnEnter = EdEnter
+          OnExit = EdExit
+          OnKeyDown = EdKeyDown
+        end
+      end
+      object PnlBtnLogin: TPanel
+        Cursor = crHandPoint
+        Left = 60
+        Height = 48
+        Top = 360
+        Width = 340
+        BevelOuter = bvNone
+        ClientHeight = 48
+        ClientWidth = 340
+        Color = clHighlight
+        ParentBackground = False
+        ParentColor = False
+        TabOrder = 2
+        OnMouseEnter = BtnLoginMouseEnter
+        OnMouseLeave = BtnLoginMouseLeave
+        object LblBtnLogin: TLabel
+          Cursor = crHandPoint
+          Left = 0
+          Height = 48
+          Top = 0
+          Width = 340
+          Align = alClient
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Masuk'
+          Font.Color = clWhite
+          Font.Height = -16
+          Font.Style = [fsBold]
+          Layout = tlCenter
+          ParentFont = False
+          OnClick = DoLogin
+          OnMouseEnter = BtnLoginMouseEnter
+          OnMouseLeave = BtnLoginMouseLeave
+        end
+      end
+      object LblStatus: TLabel
+        Left = 60
+        Height = 40
+        Top = 420
+        Width = 340
+        AutoSize = False
+        Font.Color = clRed
+        Font.Height = -12
+        Layout = tlCenter
+        ParentFont = False
+        WordWrap = True
+      end
+    end
+  end
+end

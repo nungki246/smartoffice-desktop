@@ -1,0 +1,576 @@
+object PendaftaranForm: TPendaftaranForm
+  Left = 500
+  Height = 570
+  Top = 247
+  Width = 964
+  BorderStyle = bsNone
+  ClientHeight = 570
+  ClientWidth = 964
+  Color = clBtnFace
+  LCLVersion = '4.8.0.0'
+  object FormPnl: TPanel
+    Left = 0
+    Height = 280
+    Top = 0
+    Width = 964
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 280
+    ClientWidth = 964
+    Color = clBtnFace
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object LblCari: TLabel
+      Left = 16
+      Height = 15
+      Top = 17
+      Width = 63
+      Caption = 'Cari Pasiens'
+    end
+    object FEdCari: TEdit
+      Left = 110
+      Height = 23
+      Top = 12
+      Width = 200
+      TabOrder = 0
+    end
+    object FBtnCari: TBitBtn
+      Left = 318
+      Height = 28
+      Top = 10
+      Width = 80
+      Caption = 'Cari'
+      TabOrder = 1
+      OnClick = DoSearch
+    end
+    object LblMRN: TLabel
+      Left = 16
+      Height = 15
+      Top = 57
+      Width = 40
+      Caption = 'No. RM'
+    end
+    object FEdMRN: TEdit
+      Left = 110
+      Height = 23
+      Top = 52
+      Width = 200
+      TabOrder = 2
+    end
+    object LblNIK: TLabel
+      Left = 330
+      Height = 15
+      Top = 57
+      Width = 19
+      Caption = 'NIK'
+    end
+    object FEdNIK: TEdit
+      Left = 424
+      Height = 23
+      Top = 52
+      Width = 200
+      TabOrder = 3
+    end
+    object LblNama: TLabel
+      Left = 644
+      Height = 15
+      Top = 57
+      Width = 80
+      Caption = 'Nama Lengkap'
+    end
+    object FEdNama: TEdit
+      Left = 730
+      Height = 23
+      Top = 52
+      Width = 210
+      TabOrder = 4
+    end
+    object LblTglLahir: TLabel
+      Left = 16
+      Height = 15
+      Top = 97
+      Width = 71
+      Caption = 'Tanggal Lahir'
+    end
+    object FEdTglLahir: TEdit
+      Left = 110
+      Height = 23
+      Top = 92
+      Width = 200
+      TabOrder = 5
+    end
+    object LblGender: TLabel
+      Left = 330
+      Height = 15
+      Top = 97
+      Width = 71
+      Caption = 'Jenis Kelamin'
+    end
+    object FCbGender: TComboBox
+      Left = 424
+      Height = 23
+      Top = 92
+      Width = 200
+      ItemHeight = 15
+      Items.Strings = (
+        'Laki-laki'
+        'Perempuan'
+        'Tidak Diketahui'
+      )
+      Style = csDropDownList
+      TabOrder = 6
+    end
+    object LblBlood: TLabel
+      Left = 644
+      Height = 15
+      Top = 97
+      Width = 55
+      Caption = 'Gol. Darah'
+    end
+    object FCbBlood: TComboBox
+      Left = 730
+      Height = 23
+      Top = 92
+      Width = 210
+      ItemHeight = 15
+      Items.Strings = (
+        'A'
+        'B'
+        'AB'
+        'O'
+        'Tidak Diketahui'
+      )
+      Style = csDropDownList
+      TabOrder = 7
+    end
+    object LblMarital: TLabel
+      Left = 16
+      Height = 15
+      Top = 137
+      Width = 67
+      Caption = 'Status Kawin'
+    end
+    object FCbMarital: TComboBox
+      Left = 110
+      Height = 23
+      Top = 132
+      Width = 200
+      ItemHeight = 15
+      Items.Strings = (
+        'Belum Kawin'
+        'Kawin'
+        'Cerai Hidup'
+        'Cerai Mati'
+        'Tidak Diketahui'
+      )
+      Style = csDropDownList
+      TabOrder = 8
+    end
+    object LblReligion: TLabel
+      Left = 330
+      Height = 15
+      Top = 137
+      Width = 38
+      Caption = 'Agama'
+    end
+    object FCbReligion: TComboBox
+      Left = 424
+      Height = 23
+      Top = 132
+      Width = 200
+      ItemHeight = 15
+      Items.Strings = (
+        'Islam'
+        'Kristen'
+        'Katolik'
+        'Hindu'
+        'Buddha'
+        'Konghucu'
+        'Lainnya'
+      )
+      Style = csDropDownList
+      TabOrder = 9
+    end
+    object LblPekerjaan: TLabel
+      Left = 644
+      Height = 15
+      Top = 137
+      Width = 51
+      Caption = 'Pekerjaan'
+    end
+    object FEdPekerjaan: TEdit
+      Left = 730
+      Height = 23
+      Top = 132
+      Width = 210
+      TabOrder = 10
+    end
+    object LblAlamat: TLabel
+      Left = 16
+      Height = 15
+      Top = 177
+      Width = 38
+      Caption = 'Alamat'
+    end
+    object FEdAlamat: TEdit
+      Left = 110
+      Height = 23
+      Top = 172
+      Width = 200
+      TabOrder = 11
+    end
+    object LblTelepon: TLabel
+      Left = 330
+      Height = 15
+      Top = 177
+      Width = 42
+      Caption = 'Telepon'
+    end
+    object FEdTelepon: TEdit
+      Left = 424
+      Height = 23
+      Top = 172
+      Width = 200
+      TabOrder = 12
+    end
+    object LblEmail: TLabel
+      Left = 644
+      Height = 15
+      Top = 177
+      Width = 29
+      Caption = 'Email'
+    end
+    object FEdEmail: TEdit
+      Left = 730
+      Height = 23
+      Top = 172
+      Width = 210
+      TabOrder = 13
+    end
+    object LblPayer: TLabel
+      Left = 16
+      Height = 15
+      Top = 217
+      Width = 50
+      Caption = 'Penjamin'
+    end
+    object FCbPayer: TComboBox
+      Left = 110
+      Height = 23
+      Top = 212
+      Width = 200
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 14
+    end
+    object LblUnit: TLabel
+      Left = 330
+      Height = 15
+      Top = 217
+      Width = 53
+      Caption = 'Poli / Unit'
+    end
+    object FCbUnit: TComboBox
+      Left = 424
+      Height = 23
+      Top = 212
+      Width = 200
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 15
+    end
+    object LblDoctor: TLabel
+      Left = 644
+      Height = 15
+      Top = 217
+      Width = 35
+      Caption = 'Dokter'
+    end
+    object FCbDoctor: TComboBox
+      Left = 730
+      Height = 23
+      Top = 212
+      Width = 210
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 16
+    end
+    object LblTanggal: TLabel
+      Left = 16
+      Height = 15
+      Top = 257
+      Width = 129
+      Caption = 'Tanggal (YYYY-MM-DD)'
+    end
+    object FEdTanggal: TEdit
+      Left = 110
+      Height = 23
+      Top = 252
+      Width = 200
+      TabOrder = 17
+    end
+    object FBtnSave: TBitBtn
+      Left = 424
+      Height = 30
+      Top = 250
+      Width = 140
+      Caption = 'Simpan Registrasi'
+      TabOrder = 18
+      OnClick = DoSave
+    end
+  end
+  object VisitBar: TPanel
+    Left = 0
+    Height = 40
+    Top = 280
+    Width = 964
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 40
+    ClientWidth = 964
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 1
+    object FBtnAddVisit: TBitBtn
+      Left = 8
+      Height = 30
+      Top = 5
+      Width = 130
+      Caption = 'Tambah Kunjungan'
+      TabOrder = 0
+      OnClick = DoAddVisit
+    end
+    object FBtnEditVisit: TBitBtn
+      Left = 146
+      Height = 30
+      Top = 5
+      Width = 90
+      Caption = 'Ubah'
+      TabOrder = 1
+      OnClick = DoOpenEdit
+    end
+    object FBtnCancelVisit: TBitBtn
+      Left = 244
+      Height = 30
+      Top = 5
+      Width = 120
+      Caption = 'Batal Kunjungan'
+      TabOrder = 2
+      OnClick = DoCancelVisit
+    end
+    object FBtnRefreshList: TBitBtn
+      Left = 372
+      Height = 30
+      Top = 5
+      Width = 100
+      Caption = 'Segarkan'
+      TabOrder = 3
+      OnClick = DoRefreshList
+    end
+  end
+  object EditPnl: TPanel
+    Left = 0
+    Height = 170
+    Top = 320
+    Width = 964
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 170
+    ClientWidth = 964
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 2
+    object LblEditTitle: TLabel
+      Left = 16
+      Height = 18
+      Top = 14
+      Width = 96
+      Caption = 'Ubah Kunjungan'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object LblEditVisit: TLabel
+      Left = 16
+      Height = 15
+      Top = 57
+      Width = 84
+      Caption = 'No. Kunjungan'
+    end
+    object FEdVisitNo: TEdit
+      Left = 110
+      Height = 23
+      Top = 52
+      Width = 200
+      ReadOnly = True
+      TabOrder = 0
+    end
+    object LblEditPatient: TLabel
+      Left = 330
+      Height = 15
+      Top = 57
+      Width = 35
+      Caption = 'Pasien'
+    end
+    object FEdVisitPatient: TEdit
+      Left = 424
+      Height = 23
+      Top = 52
+      Width = 200
+      ReadOnly = True
+      TabOrder = 1
+    end
+    object LblEditStatus: TLabel
+      Left = 644
+      Height = 15
+      Top = 57
+      Width = 34
+      Caption = 'Status'
+    end
+    object FEdVisitStatus: TEdit
+      Left = 730
+      Height = 23
+      Top = 52
+      Width = 210
+      ReadOnly = True
+      TabOrder = 2
+    end
+    object LblEditPayer: TLabel
+      Left = 16
+      Height = 15
+      Top = 97
+      Width = 50
+      Caption = 'Penjamin'
+    end
+    object FCbEditPayer: TComboBox
+      Left = 110
+      Height = 23
+      Top = 92
+      Width = 200
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 3
+    end
+    object LblEditUnit: TLabel
+      Left = 330
+      Height = 15
+      Top = 97
+      Width = 53
+      Caption = 'Poli / Unit'
+    end
+    object FCbEditUnit: TComboBox
+      Left = 424
+      Height = 23
+      Top = 92
+      Width = 200
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 4
+    end
+    object LblEditDoctor: TLabel
+      Left = 644
+      Height = 15
+      Top = 97
+      Width = 35
+      Caption = 'Dokter'
+    end
+    object FCbEditDoctor: TComboBox
+      Left = 730
+      Height = 23
+      Top = 92
+      Width = 210
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 5
+    end
+    object LblEditTanggal: TLabel
+      Left = 16
+      Height = 15
+      Top = 137
+      Width = 129
+      Caption = 'Tanggal (YYYY-MM-DD)'
+    end
+    object FEdEditTanggal: TEdit
+      Left = 110
+      Height = 23
+      Top = 132
+      Width = 200
+      TabOrder = 6
+    end
+    object FBtnSaveEdit: TBitBtn
+      Left = 424
+      Height = 30
+      Top = 130
+      Width = 140
+      Caption = 'Simpan Perubahan'
+      TabOrder = 7
+      OnClick = DoSaveEdit
+    end
+    object FBtnEditCancel: TBitBtn
+      Left = 572
+      Height = 30
+      Top = 130
+      Width = 100
+      Caption = 'Batal'
+      TabOrder = 8
+      OnClick = DoEditCancel
+    end
+  end
+  object FGrid: TDBGrid
+    Left = 8
+    Height = 250
+    Top = 320
+    Width = 948
+    Align = alClient
+    AlternateColor = 15790320
+    BorderSpacing.Left = 8
+    BorderSpacing.Top = 8
+    BorderSpacing.Right = 8
+    BorderSpacing.Bottom = 8
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'ID'
+        Width = 60
+        FieldName = 'id'
+      end    
+      item
+        Title.Caption = 'No. Kunjungan'
+        Width = 130
+        FieldName = 'visit_no'
+      end    
+      item
+        Title.Caption = 'Pasien'
+        Width = 180
+        FieldName = 'nama'
+      end    
+      item
+        Title.Caption = 'Penjamin'
+        Width = 120
+        FieldName = 'penjamin'
+      end    
+      item
+        Title.Caption = 'Poli / Unit'
+        Width = 140
+        FieldName = 'unit'
+      end    
+      item
+        Title.Caption = 'Dokter'
+        Width = 140
+        FieldName = 'dokter'
+      end    
+      item
+        Title.Caption = 'No. Antrean'
+        Width = 110
+        FieldName = 'display_number'
+      end    
+      item
+        Title.Caption = 'Status'
+        Width = 110
+        FieldName = 'status'
+      end>
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    TabOrder = 3
+  end
+end
